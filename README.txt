@@ -1,6 +1,6 @@
-ODE TO GSX — 0.1.4
+ODE TO GSX — 0.2.0
 
-An experimental standalone C++ granular synthesizer using JUCE for desktop
+An experimental standalone and VST3/AU C++ granular synthesizer using JUCE for desktop
 hosting and DaisySP for oscillators. Inspired by Barry Truax’s GSX and the
 WebAudio implementation by ijc:
 https://ijc8.me/2020/09/06/emulating-the-gsx/
@@ -30,11 +30,11 @@ Build
 Requires CMake 3.22+, a C++17 compiler, and separately obtained JUCE and DaisySP.
 Tested locally with JUCE 8.0.12 on macOS. Dependencies are never downloaded.
 
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DJUCE_PATH=/path/to/JUCE -DDAISYSP_PATH=/path/to/DaisySP
-cmake --build build --parallel 4
-ctest --test-dir build --output-on-failure
+cmake -S . -B build-release -DCMAKE_BUILD_TYPE=Release -DJUCE_PATH=/path/to/JUCE -DDAISYSP_PATH=/path/to/DaisySP
+cmake --build build-release --parallel 4
+ctest --test-dir build-release --output-on-failure
 
-macOS app: build/GSXTest_artefacts/Release/ODE TO GSX.app
+macOS app: build-release/OdeToGSX_artefacts/Release/Standalone/ODE TO GSX.app
 
 Validation covers envelopes, extreme ranges, 64 voices at 44.1/48/96 kHz,
 Stop, zero voices, invalid inputs, ramp timing, and lower-bound wraparound.
@@ -46,5 +46,16 @@ Attribution and rights
 This is a functional recreation, not original GSX software or PDP-11/DMX
 hardware emulation. The WebAudio source above informed the implementation.
 No third-party firmware, samples, research PDFs or dependency sources are
-included. JUCE and DaisySP retain their respective licenses. No blanket
-open-source or third-party redistribution rights are asserted for this project.
+included. JUCE and DaisySP retain their respective licenses. Project code is licensed under AGPLv3 (see LICENSE). This does not grant
+rights to any original GSX software, recordings or other third-party material.
+
+Downloads and build workflow
+Precompiled preview releases: https://github.com/SnazzyBlanket/Ode_2_GSX/releases
+See DISTRIBUTION.txt for supported platforms, installation and limitations.
+Plugin.cpp and Plugin.h implement the current shared standalone/plugin host.
+Main.cpp preserves the earlier standalone implementation for reference only.
+Release workflows pin dependencies listed in DEPENDENCIES.txt, test both
+platforms, and publish binaries plus corresponding source with dependencies.
+Windows uses --config Release when building and -C Release when running ctest.
+Configure macOS with -DCMAKE_OSX_ARCHITECTURES=arm64
+and -DCMAKE_OSX_DEPLOYMENT_TARGET=13.0 for the Apple Silicon preview.

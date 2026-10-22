@@ -1,0 +1,25 @@
+ODE TO GSX 0.2.0 — preview binaries
+Copyright (c) 2026 SnazzyBlanket. Project code is licensed under AGPLv3;
+see LICENSE. Dependency notices are in LICENSES and dependency source trees.
+Corresponding source: https://github.com/SnazzyBlanket/Ode_2_GSX
+Download the matching source-with-dependencies archive from the same release.
+No warranty. This does not claim rights to original GSX software or recordings.
+
+macOS: Apple Silicon arm64, macOS 13 Ventura or later (including 14 Sonoma).
+Unzip and move ODE TO GSX.app to your Applications folder. This preview is
+ad-hoc signed, not Developer ID signed or notarized. macOS may require an
+explicit Open Anyway approval in System Settings > Privacy & Security.
+Workplace device policies may disallow unsigned third-party software.
+VST3: copy the complete .vst3 bundle to ~/Library/Audio/Plug-Ins/VST3/.
+AU: copy the .component bundle to ~/Library/Audio/Plug-Ins/Components/.
+
+Windows: x64. Unzip the standalone and run ODE TO GSX.exe.
+VST3: copy the complete ODE TO GSX.vst3 directory to
+C:\Program Files\Common Files\VST3\ and rescan plugins in your DAW.
+These preview binaries are not certificate-signed; Windows may show a warning.
+
+Plugin use: insert as an instrument on an audio/instrument track and press
+Start in its editor. This is a free-running generator; MIDI notes and DAW
+transport do not trigger it. State is saved with the DAW session. Host
+parameter automation is not yet exposed. Standalone audio device settings
+are in the JUCE wrapper's Options menu. Start with a low output level.

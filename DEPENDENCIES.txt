@@ -1,0 +1,2 @@
+JUCE 8.0.12: https://github.com/juce-framework/JUCE/tree/29396c22c93392d6738e021b83196283d6e4d850
+DaisySP: https://github.com/electro-smith/DaisySP/tree/2c72eaf9eac5fc0dca1919d65d606da907832618
