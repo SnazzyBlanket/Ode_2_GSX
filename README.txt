@@ -1,4 +1,4 @@
-ODE TO GSX — 0.2.0
+ODE TO GSX — 0.2.1
 
 An experimental standalone and VST3/AU C++ granular synthesizer using JUCE for desktop
 hosting and DaisySP for oscillators. Inspired by Barry Truax’s GSX and the

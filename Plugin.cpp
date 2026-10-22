@@ -13,7 +13,7 @@ public:
   const char* names[]={"FREQ (Hz)","FRQ.RNG (Hz)","DURATION (ms)","DUR.RNG (ms)","DELAY (ms)","RAMP (ms)","SQUARE VOICES","SAW VOICES","TOTAL VOICES"};
   auto label=[this](juce::Label& l,juce::String s){l.setText(s,juce::dontSendNotification);l.setColour(juce::Label::textColourId,juce::Colour(0xffe8ae26));addAndMakeVisible(l);};
   label(title,"ODE TO GSX"); title.setFont(juce::FontOptions(27.f));
-  label(description,"sine + square + saw  /  64 voices  /  v0.2.0");
+  label(description,"sine + square + saw  /  64 voices  /  v0.2.1");
   label(headings,"PARAMETER                                      VALUE                           STEP x INC");
   for(int i=0;i<gsx::Count;++i) {
    label(labels[i],names[i]);

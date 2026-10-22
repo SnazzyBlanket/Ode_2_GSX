@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(OdeToGSX VERSION 0.2.0 LANGUAGES C CXX)
+project(OdeToGSX VERSION 0.2.1 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(JUCE_PATH "" CACHE PATH "Local JUCE source")
 set(DAISYSP_PATH "" CACHE PATH "Local DaisySP source")

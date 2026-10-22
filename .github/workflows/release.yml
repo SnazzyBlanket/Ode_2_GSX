@@ -13,6 +13,8 @@ jobs:
         include:
           - os: macos-14
             platform: macOS-arm64
+          - os: macos-15-intel
+            platform: macOS-x64
           - os: windows-2022
             platform: Windows-x64
     runs-on: ${{ matrix.os }}
@@ -33,7 +35,9 @@ jobs:
         run: |
           extra=()
           if [[ "$RUNNER_OS" == "macOS" ]]; then
-            extra=(-DCMAKE_OSX_ARCHITECTURES=arm64 -DCMAKE_OSX_DEPLOYMENT_TARGET=13.0)
+            arch=arm64
+            if [[ "${{ matrix.platform }}" == "macOS-x64" ]]; then arch=x86_64; fi
+            extra=(-DCMAKE_OSX_ARCHITECTURES="$arch" -DCMAKE_OSX_DEPLOYMENT_TARGET=13.0)
           fi
           cmake -S . -B build-release -DCMAKE_BUILD_TYPE=Release -DJUCE_PATH="$PWD/deps/JUCE" -DDAISYSP_PATH="$PWD/deps/DaisySP" "${extra[@]}"
       - name: Build
@@ -64,15 +68,15 @@ jobs:
           path: deps/DaisySP
       - name: Corresponding source with dependencies
         run: |
-          tar --exclude=.git -czf "$RUNNER_TEMP/ODE-TO-GSX-0.2.0-source-with-dependencies.tar.gz" .
+          tar --exclude=.git -czf "$RUNNER_TEMP/ODE-TO-GSX-0.2.1-source-with-dependencies.tar.gz" .
           cd "$RUNNER_TEMP"
-          sha256sum ODE-TO-GSX-0.2.0-source-with-dependencies.tar.gz > ODE-TO-GSX-0.2.0-source-with-dependencies.sha256
+          sha256sum ODE-TO-GSX-0.2.1-source-with-dependencies.tar.gz > ODE-TO-GSX-0.2.1-source-with-dependencies.sha256
       - uses: actions/upload-artifact@v4
         with:
           name: ODE-TO-GSX-source
           path: |
-            ${{ runner.temp }}/ODE-TO-GSX-0.2.0-source-with-dependencies.tar.gz
-            ${{ runner.temp }}/ODE-TO-GSX-0.2.0-source-with-dependencies.sha256
+            ${{ runner.temp }}/ODE-TO-GSX-0.2.1-source-with-dependencies.tar.gz
+            ${{ runner.temp }}/ODE-TO-GSX-0.2.1-source-with-dependencies.sha256
   publish:
     if: startsWith(github.ref, 'refs/tags/')
     needs: [build, source]

@@ -1,11 +1,12 @@
-ODE TO GSX 0.2.0 — preview binaries
+ODE TO GSX 0.2.1 — preview binaries
 Copyright (c) 2026 SnazzyBlanket. Project code is licensed under AGPLv3;
 see LICENSE. Dependency notices are in LICENSES and dependency source trees.
 Corresponding source: https://github.com/SnazzyBlanket/Ode_2_GSX
 Download the matching source-with-dependencies archive from the same release.
 No warranty. This does not claim rights to original GSX software or recordings.
 
-macOS: Apple Silicon arm64, macOS 13 Ventura or later (including 14 Sonoma).
+macOS: separate Apple Silicon arm64 and Intel x64 downloads.
+Both require macOS 13 Ventura or later (including 14 Sonoma).
 Unzip and move ODE TO GSX.app to your Applications folder. This preview is
 ad-hoc signed, not Developer ID signed or notarized. macOS may require an
 explicit Open Anyway approval in System Settings > Privacy & Security.
